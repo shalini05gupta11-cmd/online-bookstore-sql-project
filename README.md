@@ -1,1 +1,1 @@
-# Online Bookstore Database Management system(sql)
+# Online Bookstore Database Management system(sql) project

@@ -257,17 +257,17 @@ GROUP BY b.genre;
 SELECT AVG(price) AS AVG_PRICE FROM Books
 WHERE genre='Fantasy';
 
--- 3) List customers who have placed at least 2 orders:
+-- 3) List customers who have placed at least 1 orders:
 SELECT customer_id, COUNT(order_id) AS order_count FROM Orders
 GROUP BY  customer_id
-HAVING COUNT(order_id)>=0;
+HAVING COUNT(order_id)>=1;
 
 SELECT c.Customer_ID, c.Name, COUNT(o.Order_ID) AS ORDER_COUNT
 FROM Orders o
 JOIN Customers c 
 ON c.Customer_ID=o.Customer_ID
 GROUP BY c.Customer_ID, c.Name
-HAVING COUNT(o.Order_ID)>=0;
+HAVING COUNT(o.Order_ID)>=1;
 
 
 -- 4) Find the most frequently ordered book:
@@ -322,6 +322,7 @@ FROM Books b
 LEFT JOIN Orders o ON b.Book_ID = o.Book_ID
 GROUP BY b.Book_ID, b.Title, b.Stock
 ORDER BY b.Book_ID;
+
 
 
 
